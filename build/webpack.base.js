@@ -113,9 +113,6 @@ module.exports = {
       {
         test: /\.svg$/,
         loader: 'svg-sprite-loader',
-        /*options: {
-          publicPath: env === 'development' ? '/' : 'assets/svg/',
-        },*/
       },
     ],
   },
@@ -148,7 +145,7 @@ module.exports = {
       chunkFilename: '[name].[chunkhash:8].css',
     }),
     new HtmlWebpackPlugin({
-      title: '银税服务平台',
+      title: 'wanliyunyan',
       favicon: 'src/favicon.ico',
       template: 'src/index.ejs',
       filename: 'index.html',
