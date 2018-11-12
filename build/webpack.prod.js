@@ -2,7 +2,6 @@
  * @ use 开发环境webpack构建
  */
 const path = require('path');
-const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const merge = require('webpack-merge');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -14,7 +13,6 @@ const targetFolder = 'dist';
 module.exports = function (env) {
   return merge(commonConfig, {
     mode: env,
-    cache: false,
     entry: {
       bundle: './src/index.tsx',
     },
@@ -23,9 +21,6 @@ module.exports = function (env) {
       filename: 'assets/js/[name].js',
     },
     plugins: [
-      new webpack.LoaderOptionsPlugin({
-        minimize: true,
-      }),
       new CleanWebpackPlugin([targetFolder], {
         root: `${targetPath}`,
       }),
@@ -35,9 +30,6 @@ module.exports = function (env) {
           to: 'assets/svg/',
         },
       ]),
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(env),
-      }),
     ],
   });
 };

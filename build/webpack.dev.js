@@ -29,8 +29,6 @@ function getIPAddress() {
 module.exports = function (env) {
   return merge(commonConfig, {
     mode: env,
-    cache: true,
-    devtool: 'cheap-module-eval-source-map',
     entry: {
       bundle: './src/index.tsx',
     },
@@ -69,9 +67,6 @@ module.exports = function (env) {
           reload: false,
         },
       ),
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV': JSON.stringify(env),
-      }),
     ],
   });
 };
