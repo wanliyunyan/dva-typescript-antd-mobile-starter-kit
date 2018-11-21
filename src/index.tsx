@@ -2,13 +2,16 @@ import dva from "dva";
 import createLoading from "dva-loading";
 import createBrowserHistory from "history/createBrowserHistory";
 import createHistory from "history/createHashHistory";
+import { hot } from "react-hot-loader";
 import "./index.less";
 import models from "./models";
 import router from "./router";
 
-const app = dva({
-  history: createHistory()
-});
+const app = hot(module)(
+  dva({
+    history: createHistory()
+  })
+);
 
 // 1. Initialize
 /*const app = dva({history: createBrowserHistory({
