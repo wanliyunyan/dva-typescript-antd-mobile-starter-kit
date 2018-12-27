@@ -17,7 +17,7 @@ module.exports = function (env) {
       bundle: './src/index.tsx',
     },
     output: {
-      path: path.join(__dirname, '/../dist/'),
+      path: path.join(__dirname, '../dist/'),
       filename: 'assets/js/[name].js',
     },
     plugins: [
