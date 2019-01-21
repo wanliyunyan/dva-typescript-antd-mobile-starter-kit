@@ -1,25 +1,30 @@
 import dva from "dva";
 import createLoading from "dva-loading";
-import createBrowserHistory from "history/createBrowserHistory";
-import createHistory from "history/createHashHistory";
-import { hot } from "react-hot-loader/root";
+// import createBrowserHistory from "history/createBrowserHistory";
+// import createHistory from "history/createHashHistory";
 import "./index.less";
 import models from "./models";
 import router from "./router";
 
 // 1. Initialize
 /*const app = dva({history: createBrowserHistory({
-    basename:''// 这里放入你对应的 basename
+    basename:''
   })});*/
 
-const app = process.env.NODE_ENV === "development" ? hot(dva()) : dva();
+// 1. Initialize
+let app = dva();
+if (process.env.NODE_ENV === "development") {
+  import("react-hot-loader/root").then(({ hot }) => {
+    app = hot(dva());
+  });
+}
 
 // 2. Plugins
 app.use(createLoading());
 
 // 3. Model
 models.forEach(m => {
-  app.model(m.default); // ts 导出格式包含default
+  app.model(m.default);
 });
 
 // 4. Router

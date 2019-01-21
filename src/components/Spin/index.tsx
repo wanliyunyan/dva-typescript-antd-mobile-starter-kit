@@ -10,7 +10,7 @@ export const Spin = (toast?, text?) => WrappedComponent =>
     public render() {
       let flag = true;
       const { loading } = this.props;
-      // 等待所有请求完成
+      // Waiting for all requests
       Object.keys(loading).forEach(key => {
         flag = flag && !loading[key];
       });
@@ -18,7 +18,7 @@ export const Spin = (toast?, text?) => WrappedComponent =>
         <div>
           <ActivityIndicator
             toast={toast || true}
-            text={text || "加载中..."}
+            text={text || "loading..."}
             animating={!flag}
           />
           <WrappedComponent {...this.props} />

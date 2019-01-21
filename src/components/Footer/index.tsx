@@ -49,7 +49,12 @@ export default class Index extends React.PureComponent<IProps, any> {
                       height: "22px"
                     }}
                   >
-                    <img src={obj.selectedIcon} alt="" width="100%" height="100%" />
+                    <img
+                      src={obj.selectedIcon}
+                      alt=""
+                      width="100%"
+                      height="100%"
+                    />
                   </div>
                 }
                 selected={location.pathname === obj.path}

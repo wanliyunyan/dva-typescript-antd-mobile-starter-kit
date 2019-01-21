@@ -56,11 +56,11 @@ const handleData = (result: any): any => {
   return { success: false };
 };
 
-// 增加拦截器
+// interceptors
 axios.interceptors.request.use(
   config => config,
   err => {
-    Toast.fail("请求超时!");
+    Toast.fail("request timed out");
     return Promise.resolve(err);
   }
 );
@@ -73,11 +73,13 @@ axios.interceptors.response.use(
         response: { status, statusText }
       } = err;
       if (process.env.NODE_ENV === "development") {
-        alert("错误信息", `${status}:${statusText}`);
+        alert("system information", `${status}:${statusText}`);
       } else if (process.env.NODE_ENV === "production") {
-        Toast.fail("系统繁忙，请稍后再试！");
+        Toast.fail(
+          "The system is busy and cannot get the return value of the interface correctly. Please try again later!"
+        );
       } else {
-        Toast.fail("系统繁忙，请稍后再试！");
+        Toast.fail("process.env.NODE_ENV should not be empty");
       }
       return Promise.resolve(err);
     }

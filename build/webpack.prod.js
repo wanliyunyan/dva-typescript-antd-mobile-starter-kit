@@ -1,5 +1,7 @@
 /*
- * @ use 开发环境webpack构建
+ * @ author wanliyunyan
+ * @ github  https://github.com/wanliyunyan
+ * @ use production
  */
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');

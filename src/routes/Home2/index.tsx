@@ -1,19 +1,19 @@
-import { Button, Card, WhiteSpace,WingBlank } from "antd-mobile";
+import { Button, Card, WhiteSpace, WingBlank } from "antd-mobile";
 import { connect } from "dva";
 import * as React from "react";
-import {Spin} from "src/components/Spin/index";
+import { Spin } from "src/components/Spin/index";
 import styles from "./index.less";
 
 interface IProps {
   dispatch?: any;
   location?: any;
-  loading?:any
+  loading?: any;
   list: any;
 }
 
 @connect(state => ({
   ...state.list,
-  loading:state.loading.effects
+  loading: state.loading.effects
 }))
 @Spin()
 export default class Index extends React.Component<IProps, any> {
@@ -22,7 +22,7 @@ export default class Index extends React.Component<IProps, any> {
   }
 
   public render() {
-    const { list,dispatch } = this.props;
+    const { list, dispatch } = this.props;
     return (
       <div className={styles.main}>
         <Button
@@ -31,21 +31,21 @@ export default class Index extends React.Component<IProps, any> {
             dispatch({
               type: "list/create",
               payload: {
-                title: "这是新增的"
+                title: "This is new item"
               }
             });
           }}
         >
-          增行
+          add
         </Button>
         <Button
           onClick={() => {
             dispatch({ type: "list/query" });
           }}
         >
-          刷新
+          refresh
         </Button>
-        {list.map((obj) => (
+        {list.map(obj => (
           <WingBlank size="lg" key={obj.id}>
             <WhiteSpace size="lg" />
             <Card>
