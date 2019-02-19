@@ -16,6 +16,23 @@ const themeVariables = lessToJs(
   ),
 );
 
+const postcssOption = {
+  config: {
+    ctx: {
+      'postcss-preset-env': {
+        stage: 0, // experimental
+        autoprefixer: env === 'production',
+      },
+      cssnano:
+        env === 'production'
+          ? {
+            preset: 'advanced',
+          }
+          : false,
+    },
+  },
+};
+
 module.exports = {
   module: {
     rules: [
@@ -48,7 +65,8 @@ module.exports = {
         use: [
           env === 'development' ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
-          'postcss-loader',
+          // https://github.com/michael-ciniawsky/postcss-load-config/issues/154
+          // 'postcss-loader', todo need postcss-load-config@2.0.1
           'sass-loader',
         ],
       },
@@ -70,6 +88,7 @@ module.exports = {
           },
           {
             loader: 'postcss-loader',
+            options: postcssOption,
           },
           {
             loader: 'less-loader',
@@ -95,6 +114,7 @@ module.exports = {
           },
           {
             loader: 'postcss-loader',
+            options: postcssOption,
           },
           {
             loader: 'less-loader',
@@ -120,9 +140,25 @@ module.exports = {
     splitChunks: {
       cacheGroups: {
         vendor: {
-          chunks: 'all',
-          test: /[\\/]node_modules[\\/]/,
           name: 'vendor',
+          test: /[\\/]node_modules[\\/]/,
+          chunks: 'all',
+          priority: 10,
+          enforce: true,
+        },
+        react: {
+          name: 'react',
+          test: module => /react|redux/.test(module.context),
+          chunks: 'initial',
+          priority: 11,
+          enforce: true,
+        },
+        lodash: {
+          name: 'lodash',
+          test: module => /lodash/.test(module.context),
+          chunks: 'initial',
+          priority: 12,
+          enforce: true,
         },
       },
     },
@@ -143,14 +179,15 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].[chunkhash:8].css',
-      chunkFilename: '[name].[chunkhash:8].css',
+      filename: '[name].css',
+      chunkFilename: '[name].css',
     }),
     new HtmlWebpackPlugin({
       title: 'wanliyunyan',
       favicon: 'src/favicon.ico',
       template: 'src/index.ejs',
       filename: 'index.html',
+      hash: true,
     }),
   ],
   resolve: {
