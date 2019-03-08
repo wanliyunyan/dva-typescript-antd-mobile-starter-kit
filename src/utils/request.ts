@@ -51,6 +51,9 @@ const fetch = (url: string, options: any, config: any) => {
 const handleData = (result: any): any => {
   if (result) {
     const { status, data } = result;
+    if (!status) {
+      return { success: false };
+    }
     return { data, success: status >= 200 && status < 300 };
   }
   return { success: false };

@@ -21,3 +21,10 @@ declare module "*.less" {
   };
   export default content;
 }
+
+declare module "*.png" {
+  const content: {
+    [propName: string]: any;
+  };
+  export default content;
+}
