@@ -1,8 +1,30 @@
-import BasicLayout from "../layouts/BasicLayout";
-import Home1 from "../routes/Home1/index";
-import Home2 from "../routes/Home2/index";
-import Home3 from "../routes/Home3/index";
-import Home4 from "../routes/Home4/index";
+import Loadable from "react-loadable";
+import { MyLoadingComponent } from "../components/Load";
+
+const BasicLayout = Loadable({
+  loader: () => import("../layouts/BasicLayout"),
+  loading: MyLoadingComponent
+});
+
+const Home1 = Loadable({
+  loader: () => import("../routes/Home1/index"),
+  loading: MyLoadingComponent
+});
+
+const Home2 = Loadable({
+  loader: () => import("../routes/Home2/index"),
+  loading: MyLoadingComponent
+});
+
+const Home3 = Loadable({
+  loader: () => import("../routes/Home3/index"),
+  loading: MyLoadingComponent
+});
+
+const Home4 = Loadable({
+  loader: () => import("../routes/Home4/index"),
+  loading: MyLoadingComponent
+});
 
 const data = [
   {
