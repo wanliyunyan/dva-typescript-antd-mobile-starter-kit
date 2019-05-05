@@ -1,6 +1,5 @@
 import { connect } from "dva";
 import { Redirect, Switch } from "dva/router";
-import { groupBy } from "lodash";
 import React from "react";
 import Footer from "../components/Footer/index";
 import styles from "./BasicLayout.less";

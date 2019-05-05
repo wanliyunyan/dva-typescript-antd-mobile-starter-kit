@@ -1,34 +1,8 @@
-import Loadable from "react-loadable";
-import { MyLoadingComponent } from "../components/Load";
-
-const BasicLayout = Loadable({
-  loader: () => import("../layouts/BasicLayout"),
-  loading: MyLoadingComponent
-});
-
-const Home1 = Loadable({
-  loader: () => import("../routes/Home1/index"),
-  loading: MyLoadingComponent
-});
-
-const Home2 = Loadable({
-  loader: () => import("../routes/Home2/index"),
-  loading: MyLoadingComponent
-});
-
-const Home3 = Loadable({
-  loader: () => import("../routes/Home3/index"),
-  loading: MyLoadingComponent
-});
-
-const Home4 = Loadable({
-  loader: () => import("../routes/Home4/index"),
-  loading: MyLoadingComponent
-});
+import { lazy } from "react";
 
 const data = [
   {
-    component: BasicLayout,
+    component: lazy(() => import("../layouts/BasicLayout")),
     layout: "BasicLayout",
     name: "master",
     path: "",
@@ -36,7 +10,7 @@ const data = [
       {
         name: "Home1",
         path: "/home",
-        component: Home1,
+        component: lazy(() => import("../routes/Home1/index")),
         icon:
           "https://zos.alipayobjects.com/rmsportal/sifuoDUQdAFKAVcFGROC.svg",
         selectedIcon:
@@ -45,7 +19,7 @@ const data = [
       {
         name: "Home2",
         path: "/home2",
-        component: Home2,
+        component: lazy(() => import("../routes/Home2/index")),
         icon:
           "https://gw.alipayobjects.com/zos/rmsportal/BTSsmHkPsQSPTktcXyTV.svg",
         selectedIcon:
@@ -54,7 +28,7 @@ const data = [
       {
         name: "Home3",
         path: "/home3",
-        component: Home3,
+        component: lazy(() => import("../routes/Home3/index")),
         icon:
           "https://zos.alipayobjects.com/rmsportal/psUFoAMjkCcjqtUCNPxB.svg",
         selectedIcon:
@@ -63,7 +37,7 @@ const data = [
       {
         name: "Home4",
         path: "/home4",
-        component: Home4,
+        component: lazy(() => import("../routes/Home4/index")),
         icon:
           "https://zos.alipayobjects.com/rmsportal/asJMfBrNqpMMlVpeInPQ.svg",
         selectedIcon:
