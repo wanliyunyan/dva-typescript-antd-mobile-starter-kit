@@ -5,6 +5,7 @@
  */
 const webpack = require("webpack");
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
+const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
 
 module.exports = {
   output: {
@@ -29,6 +30,7 @@ module.exports = {
     }
   },
   plugins: [
+    new HardSourceWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new BrowserSyncPlugin(
       {

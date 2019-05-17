@@ -1,9 +1,9 @@
 const fs = require("fs");
 const os = require("os");
 const path = require("path");
+const HappyPack = require("happypack");
 const lessToJs = require("less-vars-to-js");
 const merge = require("webpack-merge");
-const TerserPlugin = require("terser-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
@@ -47,25 +47,13 @@ module.exports = function() {
     module: {
       rules: [
         {
-          test: /\.tsx?$/,
+          test: /\.([tj])sx?$/,
           use: [
             {
-              loader: "babel-loader"
-            },
-            {
-              loader: "ts-loader"
+              loader: 'happypack/loader?id=babel',
             }
           ],
           include: [path.join(__dirname, "../src")]
-        },
-        {
-          test: /\.(js|jsx)$/,
-          exclude: /node_modules/,
-          use: [
-            {
-              loader: "babel-loader"
-            }
-          ]
         },
         {
           test: /\.(sa|sc|c)ss$/,
@@ -141,9 +129,54 @@ module.exports = function() {
           ]
         },
         {
-          test: /\.(pdf|png|jpe?g|gif|eot|otf|ttf|woff|woff2)$/,
-          loader:
-            "url-loader?limit=8192&name=[hash:8].[name].[ext]&outputPath=assets/images/&publicPath=assets/images"
+          test: /\.(pdf|eot|otf|ttf|woff|woff2)$/,
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                limit: 8192,
+                name:"[hash:8].[name].[ext]",
+                outputPath:"assets/images/",
+                publicPath:"assets/images"
+              }
+            }
+          ]
+        },
+        {
+          test: /\.(png|jpe?g|gif)$/,
+          use: [
+            {
+              loader: 'url-loader',
+              options: {
+                limit: 8192,
+                name:"[hash:8].[name].[ext]",
+                outputPath:"assets/images/",
+                publicPath:"assets/images"
+              }
+            },
+            {
+              loader: 'image-webpack-loader',
+              options: {
+                mozjpeg: {
+                  progressive: true,
+                  quality: 65
+                },
+                optipng: {
+                  enabled: true,
+                },
+                pngquant: {
+                  quality: '65-90',
+                  speed: 4
+                },
+                gifsicle: {
+                  interlaced: false,
+                },
+                webp: {
+                  quality: 75
+                }
+              },
+            },
+          ]
         },
         {
           test: /\.svg$/,
@@ -173,7 +206,7 @@ module.exports = function() {
           util: {
             name: "util",
             test: module => {
-              return /lodash|moment|mathjs/.test(module.context);
+              return /lodash|moment/.test(module.context);
             },
             chunks: "all",
             priority: 12,
@@ -193,19 +226,13 @@ module.exports = function() {
       runtimeChunk: {
         name: "manifest"
       },
-      minimizer: [
-        new TerserPlugin({
-          cache: true,
-          parallel: os.cpus().length,
-          terserOptions: {
-            output: {
-              comments: false
-            }
-          }
-        })
-      ]
     },
     plugins: [
+      new HappyPack({
+        id: 'babel',
+        threads: os.cpus().length,
+        loaders: [ 'babel-loader' ]
+      }),
       new MiniCssExtractPlugin({
         filename: "[name].css",
         chunkFilename: "[name].css"
@@ -216,7 +243,8 @@ module.exports = function() {
         template: "src/index.ejs",
         filename: "index.html",
         chunksSortMode: "none", // Error: Cyclic dependency
-        hash: true
+        hash: true,
+        minify:true
       })
     ],
     resolve: {

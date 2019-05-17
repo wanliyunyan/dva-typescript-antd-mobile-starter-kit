@@ -3,10 +3,12 @@
  * @ github  https://github.com/wanliyunyan
  * @ use production
  */
+const os = require("os");
 const path = require("path");
+const TerserPlugin = require("terser-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-const CSSSplitWebpackPlugin = require("css-split-webpack-plugin").default;
+const CompressionPlugin = require('compression-webpack-plugin');
 
 module.exports = {
   output: {
@@ -14,13 +16,26 @@ module.exports = {
     filename: "assets/js/[name].js"
   },
   plugins: [
-    new CSSSplitWebpackPlugin({ size: 2000 }),
+    new CompressionPlugin(),
     new CleanWebpackPlugin(),
     new CopyWebpackPlugin([
       {
         from: "src/assets/svg",
         to: "assets/svg/"
       }
-    ])
-  ]
+    ]),
+  ],
+  optimization: {
+    minimizer: [
+      new TerserPlugin({
+        cache: true,
+        parallel: os.cpus().length,
+        terserOptions: {
+          output: {
+            comments: false
+          }
+        }
+      })
+    ]
+  }
 };
