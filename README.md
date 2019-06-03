@@ -148,7 +148,6 @@ devDependencies
 -   [stylelint-config-prettier](https://github.com/shannonmoeller/stylelint-config-prettier) Turns off all rules that are unnecessary or might conflict with prettier.
 -   [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) The standard shareable config for stylelint.
 -   [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader) Webpack loader for creating SVG sprites.
--   [ts-loader](https://github.com/TypeStrong/ts-loader) TypeScript loader for webpack.
 -   [tslint](https://github.com/palantir/tslint) An extensible linter for the TypeScript language.
 -   [tslint-config-prettier](https://github.com/alexjoverm/tslint-config-prettier) Use tslint with prettier without any conflict.
 -   [tslint-react](https://github.com/palantir/tslint-react) Lint rules related to React & JSX for TSLint.
