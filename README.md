@@ -1,18 +1,24 @@
-# dva-typescript-antd-mobile-starter-kit
 
-A demo based on antd-mobile
+<a href="https://996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg" alt="996.icu" /></a>
+[![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
+[![TypeScript](https://badges.frapsoft.com/typescript/version/typescript-next.svg?v=101)](https://github.com/ellerbrock/typescript-badges/)
+[![HitCount](http://hits.dwyl.io/wanliyunyan/wanliyunyan/dva-typescript-antd-starter-kit.svg)](http://hits.dwyl.io/wanliyunyan/wanliyunyan/dva-typescript-antd-starter-kit)
 
+# dva-typescript-antd-starter-kit
+
+A admin dashboard application demo based on antd-mobile.
 Now it is not perfect, then I will continue to improve the project. 
-If you don’t understand Chinese, it doesn’t matter. Clone this repo and npm intall, You can use it directly.
-
-## Babel
-已经更新至babel7
-
-## Demo
-暂无
+If you don’t understand Chinese, it doesn’t matter. Clone this repo and npm install, You can use it directly.
 
 ## About
-此项目为手机app项目，项目的主要结构模仿的[ant-design-pro](https://github.com/ant-design/ant-design-pro)，但是没有使用dva的默认配置，使用了webpack4。项目的中的package都使用最新版本，支持最新的chrome浏览器。如果想使用电脑版的项目急，请点击[dva-typescript-antd-starter-kit](https://github.com/wanliyunyan/dva-typescript-antd-starter-kit)
+The structure of the project imitates [ant-design-pro](https://github.com/ant-design/ant-design-pro),but without using the default configuration of dva, manually configure webpack4. The package in the project uses the latest version. 
+
+## Browser Support
+
+![Chrome](https://raw.github.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png) | ![Firefox](https://raw.github.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png) | ![Safari](https://raw.github.com/alrra/browser-logos/master/src/safari/safari_48x48.png) | ![Opera](https://raw.github.com/alrra/browser-logos/master/src/opera/opera_48x48.png) | ![Edge](https://raw.github.com/alrra/browser-logos/master/src/edge/edge_48x48.png) | ![IE](https://raw.github.com/alrra/browser-logos/master/src/archive/internet-explorer_9-11/internet-explorer_9-11_48x48.png) |
+--- | --- | --- | --- | --- | --- |
+Latest ✔ | No | No | No | No | No |
 
 ## Installation
 
@@ -33,51 +39,59 @@ npm run build
 ```
 
 ## Mock
-点击mockjs，启动mock数据，可以在“Home2”中看到mock数据的效果。
+click mockjs，start mock data, You can see the effect of the mock data in the "Home2".
 
 ## Linter
-tslint:fix 可以自动修复一部分代码   
+tslint:fix Can automatically repair a part of the code  
 
-styleint 可以检测过不合格的style  
+styleint detect style 
 
-prettier 可以格化式代码
+prettier format code
 
-## 项目目录
+## Babel
+update to babel7
+
+## react-hot-loader
+dynamic import react-hot-loader in development mode
+
+## Contents
 
 ```bash
-├── /build/            # webpack配置
-├── /mock/             # 模拟数据
-├── /dist/             # 项目输出目录
-├── /src/              # 项目源码目录
-│ ├── /assets/         # 公共文件，编译时copy至dist目录
-│ │ └── /images/       # 图片
-│ │ └── /style/        # 样式
-│ ├── /common/         # 公共文件
-│ ├── /components/     # UI组件及UI相关方法
-│ ├── /layouts/        # 布局
-│ ├── /models/         # 数据模型
-│ ├── /routes/         # 路由
-│ ├── /services/       # 数据接口
-│ ├── /utils/          # 工具函数
-│ │ └── request.js     # 异步请求函数
-│ │ └── utils.js       # 工具类
-│ ├── favicon.ico      # 图标
-│ ├── index.ejs        # 入口模板文件
-│ ├── index.less       # 全局样式
-│ ├── index.less.d.ts  # 声明文件
-│ ├── index.tsx        # 入口文件
-│ └── route.tsx        # 路由配置
-├── .editorconfig      # idea配置
-├── .eslintrc          # esint配置
-├── .gitignore         # 忽略配置
-├── .lintstagedrc      # lintstaged配置
-├── .stylelintrc       # stylelint配置
-├── babel.config.js    # babel配置
-├── package.json       # 项目信息
-├── postcss.config.js  # postcss配置
-├── tsconfig.json      # TypeScript配置
-├── tslint.json        # TSlint配置
-└── webpack.config.js  # webpack配置
+├── /build/                   
+├── /dist/     
+├── /mock/      
+├── /src/              
+│ ├── /assets/        
+│ │ └── /images/       
+│ │ └── /style/        
+│ │ └── /svg/          
+│ ├── /common/        
+│ ├── /components/     
+│ ├── /layouts/        
+│ ├── /models/         
+│ ├── /routes/         
+│ ├── /services/       
+│ ├── /utils/          
+│ │ └── request.js     
+│ │ └── utils.js 
+│ ├── favicon.ico      
+│ ├── index.html       
+│ ├── index.less       
+│ ├── index.tsx        
+│ └── route.tsx 
+├── .browserslistrc      
+├── .editorconfig     
+├── .eslintrc          
+├── .gitignore  
+├── .lintstagedrc     
+├── .stylelintrc       
+├── babel.config.js  
+├── package.json       
+├── postcss.config.js  
+├── README.md  
+├── tsconfig.json      
+├── tslint.json        
+└── webpack.config.js  
 ```
 
 ## Package
@@ -96,21 +110,24 @@ dependencies
 -   [react](https://github.com/facebook/react) A declarative, efficient, and flexible JavaScript library for building user interfaces.
 -   [react-dom](https://github.com/facebook/react) This package serves as the entry point of the DOM-related rendering paths. It is intended to be paired with the isomorphic React, which will be shipped as react to npm.
 -   [styled-components](https://github.com/styled-components/styled-components) Visual primitives for the component age. Use the best bits of ES6 and CSS to style your apps without stress 💅 .
+-   [react-hot-loader](https://github.com/gaearon/react-hot-loader) Tweak React components in real time.
 
 devDependencies
--   [@babel/core](https://github.com/babel/babel) 🐠 Babel is a compiler for writing next generation JavaScript.
--   [@babel/plugin-transform-runtime](https://github.com/babel/babel) 🐠 Babel is a compiler for writing next generation JavaScript.
--   [@babel/preset-env](https://github.com/babel/babel) 🐠 Babel is a compiler for writing next generation JavaScript.
--   [@babel/preset-react](https://github.com/babel/babel) 🐠 Babel is a compiler for writing next generation JavaScript.
--   [@babel/preset-typescript](https://github.com/babel/babel) 🐠 Babel is a compiler for writing next generation JavaScript.
--   [@babel/runtime](https://github.com/babel/babel) 🐠 Babel is a compiler for writing next generation JavaScript.
+-   [@babel/core](https://github.com/babel/babel) Babel is a compiler for writing next generation JavaScript. 
+-   [@babel/plugin-proposal-class-properties](https://github.com/babel/babel) Babel is a compiler for writing next generation JavaScript. 
+-   [@babel/plugin-proposal-decorators](https://github.com/babel/babel) Babel is a compiler for writing next generation JavaScript. 
+-   [@babel/plugin-syntax-dynamic-import](https://github.com/babel/babel) Babel is a compiler for writing next generation JavaScript. 
+-   [@babel/plugin-transform-runtime](https://github.com/babel/babel) Babel is a compiler for writing next generation JavaScript. 
+-   [@babel/preset-env](https://github.com/babel/babel) Babel is a compiler for writing next generation JavaScript. 
+-   [@babel/preset-react](https://github.com/babel/babel) Babel is a compiler for writing next generation JavaScript. 
+-   [@babel/preset-typescript](https://github.com/babel/babel) Babel is a compiler for writing next generation JavaScript. 
+-   [@babel/runtime](https://github.com/babel/babel) Babel is a compiler for writing next generation JavaScript. 
 -   [@types/classnames](https://github.com/DefinitelyTyped/DefinitelyTyped) This package contains type definitions for react.
--   [@types/lodash](https://github.com/DefinitelyTyped/DefinitelyTyped) This package contains type definitions for react-dom.
--   [@types/query-string](https://github.com/DefinitelyTyped/DefinitelyTyped) This package contains type definitions for react-router.
--   [@types/react](https://github.com/DefinitelyTyped/DefinitelyTyped) This package contains type definitions for react.
+-   [@types/lodash](https://github.com/DefinitelyTyped/DefinitelyTyped) This package contains type definitions for lodash.
+-   [@types/react](https://github.com/DefinitelyTyped/DefinitelyTyped) This package contains type definitions for classnames.
 -   [@types/react-dom](https://github.com/DefinitelyTyped/DefinitelyTyped) This package contains type definitions for react-dom.
--   [@types/webpack](https://github.com/DefinitelyTyped/DefinitelyTyped) This package contains type definitions for React.
--   [@types/webpack-env](https://github.com/DefinitelyTyped/DefinitelyTyped) This package contains type definitions for React.
+-   [@types/webpack](https://github.com/DefinitelyTyped/DefinitelyTyped) This package contains type definitions for webpack.
+-   [@types/webpack-env](https://github.com/DefinitelyTyped/DefinitelyTyped) This package contains type definitions for webpack-env.
 -   [autoprefixer](https://github.com/postcss/autoprefixer) Parse CSS and add vendor prefixes to rules by Can I Use.
 -   [babel-eslint](https://github.com/babel/babel-eslint) A wrapper for Babel's parser used for ESLint.
 -   [babel-loader](https://github.com/babel/babel-loader) Webpack plugin for Babel.
@@ -121,6 +138,7 @@ devDependencies
 -   [copy-webpack-plugin](https://github.com/webpack-contrib/copy-webpack-plugin) Copy files and directories with webpack.
 -   [css-loader](https://github.com/webpack-contrib/css-loader) CSS Loader.
 -   [cssnano](https://github.com/ben-eb/cssnano) A modular minifier, built on top of the PostCSS ecosystem. 
+-   [cssnano-preset-advanced](https://github.com/ben-eb/cssnano) A modular minifier, built on top of the PostCSS ecosystem. 
 -   [eslint](https://github.com/eslint/eslint) A fully pluggable tool for identifying and reporting on patterns in JavaScript.
 -   [eslint-config-airbnb](https://github.com/airbnb/javascript) A mostly reasonable approach to JavaScript.
 -   [eslint-plugin-import](https://github.com/benmosher/eslint-plugin-import) ESLint plugin with rules that help validate proper imports.
@@ -128,7 +146,10 @@ devDependencies
 -   [eslint-plugin-react](https://github.com/yannickcr/eslint-plugin-react) React specific linting rules for ESLint.
 -   [expect](https://github.com/facebook/jest) 
 -   [file-loader](https://github.com/webpack-contrib/file-loader) File Loader.
+-   [happypack](https://github.com/amireh/happypack) Happiness in the form of faster webpack build times.
+-   [hard-source-webpack-plugin](https://github.com/mzgoddard/hard-source-webpack-plugin)
 -   [html-webpack-plugin](https://github.com/jantimon/html-webpack-plugin) Simplifies creation of HTML files to serve your webpack bundles.
+-   [image-webpack-loader](https://github.com/tcoopman/image-webpack-loader) Image loader module for webpack.
 -   [husky](https://github.com/typicode/husky) Git hooks made easy.
 -   [json-server](https://github.com/typicode/json-server) Get a full fake REST API with zero coding in less than 30 seconds (seriously).
 -   [less](https://github.com/less/less.js) Less. The dynamic stylesheet language.
@@ -139,15 +160,19 @@ devDependencies
 -   [node-sass](https://github.com/sass/node-sass) 🌈 Node.js bindings to libsass.
 -   [postcss-import](https://github.com/postcss/postcss-import) PostCSS plugin to inline @import rules content.
 -   [postcss-loader](https://github.com/postcss/postcss-loader) PostCSS loader for webpack.
+-   [postcss-preset-env](https://github.com/csstools/postcss-preset-env) Convert modern CSS into something browsers understand.
 -   [prettier](https://github.com/prettier/prettier) Prettier is an opinionated code formatter.
--   [react-hot-loader](https://github.com/gaearon/react-hot-loader) Tweak React components in real time.
 -   [sass-loader](https://github.com/webpack-contrib/sass-loader) Compiles Sass to CSS.
 -   [source-map-loader](https://github.com/webpack-contrib/source-map-loader) extract sourceMappingURL comments from modules and offer it to webpack.
 -   [style-loader](https://github.com/webpack-contrib/style-loader) Style Loader.
 -   [stylelint](https://github.com/stylelint/stylelint) A mighty, modern CSS linter.
 -   [stylelint-config-prettier](https://github.com/shannonmoeller/stylelint-config-prettier) Turns off all rules that are unnecessary or might conflict with prettier.
+-   [stylelint-config-rational-order](https://github.com/constverum/stylelint-config-rational-order) Stylelint config that sorts related property declarations by grouping together in the rational order 🚦.
 -   [stylelint-config-standard](https://github.com/stylelint/stylelint-config-standard) The standard shareable config for stylelint.
+-   [stylelint-declaration-block-no-ignored-properties](https://github.com/kristerkari/stylelint-declaration-block-no-ignored-properties) Disallow property values that are ignored due to another property value in the same rule.
+-   [stylelint-order](https://github.com/hudochenkov/stylelint-order) A plugin pack of order related linting rules for stylelint.
 -   [svg-sprite-loader](https://github.com/kisenka/svg-sprite-loader) Webpack loader for creating SVG sprites.
+-   [terser-webpack-plugin](https://github.com/webpack-contrib/terser-webpack-plugin) Terser Plugin.
 -   [tslint](https://github.com/palantir/tslint) An extensible linter for the TypeScript language.
 -   [tslint-config-prettier](https://github.com/alexjoverm/tslint-config-prettier) Use tslint with prettier without any conflict.
 -   [tslint-react](https://github.com/palantir/tslint-react) Lint rules related to React & JSX for TSLint.
