@@ -5,31 +5,35 @@
  */
 const webpack = require("webpack");
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
-const HardSourceWebpackPlugin = require('hard-source-webpack-plugin');
+const HardSourceWebpackPlugin = require("hard-source-webpack-plugin");
 
 module.exports = {
   output: {
-    filename: "assets/js/[name].js",
-    sourceMapFilename: "[name].map"
+    filename: "assets/js/[name].js"
   },
   devServer: {
-    historyApiFallback: true,
-    noInfo: false,
-    hot: true,
-    stats: "normal",
-    contentBase: "./src/",
     compress: true,
-    port: 8003,
+    contentBase: "./src/",
     disableHostCheck: true,
+    historyApiFallback: true,
+    hot: true,
+    noInfo: false,
+    overlay: {
+      errors: true,
+      warnings: true
+    },
+    port: 8003,
     proxy: {
       "/api/*": {
-        target: "http://localhost:9090",
+        changeOrigin: true,
         secure: false,
-        changeOrigin: true
+        target: "http://localhost:9090"
       }
-    }
+    },
+    stats: "normal"
   },
   plugins: [
+    new webpack.ProgressPlugin(),
     new HardSourceWebpackPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new BrowserSyncPlugin(
