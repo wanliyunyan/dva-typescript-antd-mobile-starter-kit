@@ -4,7 +4,7 @@ import React from "react";
 import Footer from "../components/Footer/index";
 import styles from "./BasicLayout.less";
 
-interface IProps {
+interface Props {
   location?: any;
   history?: any;
   dispatch?: any;
@@ -13,7 +13,7 @@ interface IProps {
 interface IState {}
 
 @connect(state => ({}))
-export default class Index extends React.Component<IProps, IState> {
+export default class Index extends React.Component<Props, IState> {
   constructor(props) {
     super(props);
   }
@@ -24,7 +24,7 @@ export default class Index extends React.Component<IProps, IState> {
     return (
       <div className={styles.main}>
         <Switch>
-          <Redirect from="/" to="/home" exact={true} />
+          <Redirect from="/" to="/home" exact />
         </Switch>
 
         <Footer location={location} />

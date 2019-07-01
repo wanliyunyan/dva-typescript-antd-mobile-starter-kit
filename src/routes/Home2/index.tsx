@@ -4,7 +4,7 @@ import * as React from "react";
 import { Spin } from "src/components/Spin/index";
 import styles from "./index.less";
 
-interface IProps {
+interface Props {
   dispatch?: any;
   location?: any;
   loading?: any;
@@ -16,8 +16,8 @@ interface IProps {
   loading: state.loading.effects
 }))
 @Spin()
-export default class Index extends React.Component<IProps, any> {
-  constructor(props: IProps) {
+export default class Index extends React.Component<Props, any> {
+  constructor(props: Props) {
     super(props);
   }
 

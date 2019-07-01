@@ -6,7 +6,7 @@ import React from "react";
 import { getRouteData } from "../../utils/utils";
 import styles from "./index.less";
 
-interface IProps {
+interface Props {
   location?: any;
   history?: any;
   dispatch?: any;
@@ -14,7 +14,7 @@ interface IProps {
 }
 
 @connect()
-export default class Index extends React.PureComponent<IProps, any> {
+export default class Index extends React.PureComponent<Props, any> {
   public render() {
     const menu = getRouteData("BasicLayout");
     const { dispatch, location } = this.props;

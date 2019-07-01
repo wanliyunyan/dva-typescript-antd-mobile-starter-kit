@@ -7,9 +7,9 @@ import models from "./models";
 import router from "./router";
 
 // 1. Initialize
-/*const app = dva({history: createBrowserHistory({
+/* const app = dva({history: createBrowserHistory({
     basename:''
-  })});*/
+  })}); */
 
 // 1. Initialize
 let app = dva();

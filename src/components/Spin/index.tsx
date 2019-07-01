@@ -1,12 +1,12 @@
 import { ActivityIndicator } from "antd-mobile";
 import React, { PureComponent } from "react";
 
-interface IProps {
+interface Props {
   loading?: any;
 }
 
 export const Spin = (toast?, text?) => WrappedComponent =>
-  class extends PureComponent<IProps, any> {
+  class extends PureComponent<Props, any> {
     public render() {
       let flag = true;
       const { loading } = this.props;
